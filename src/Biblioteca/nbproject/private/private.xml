@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="JAVA BACKUP">
+            <file>file:/D:/2.%20SOFTWARE/VIDEOTECA/src/Videoteca/src/videoteca/TelaPrincipal.java</file>
+            <file>file:/D:/2.%20SOFTWARE/VIDEOTECA/src/Videoteca/src/videoteca/Videoteca.java</file>
+        </group>
+        <group name="VIDEOTECA">
+            <file>file:/D:/2.%20SOFTWARE/VIDEOTECA/src/Videoteca/src/videoteca/FrameCadastroAlbum.java</file>
+            <file>file:/D:/2.%20SOFTWARE/VIDEOTECA/src/Videoteca/src/videoteca/FrameManutencFilmes.java</file>
+            <file>file:/D:/2.%20SOFTWARE/VIDEOTECA/src/Videoteca/src/videoteca/TabPanel.java</file>
+            <file>file:/D:/2.%20SOFTWARE/VIDEOTECA/src/Videoteca/src/videoteca/TabRenderer.java</file>
+            <file>file:/D:/2.%20SOFTWARE/VIDEOTECA/src/Videoteca/src/videoteca/FrameApresentacao.java</file>
+        </group>
+        <group name="Bibliotea">
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/forms/OuvinteAtualizacaoCadastros.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/biblioteca/GerencEmprestTerceiros.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/forms/TelaSobre.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/app/Config.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/acesso/ContaAcesso.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/biblioteca/GerencLivrosAcervo.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/acesso/GerencContasAcesso.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/forms/FiltroSelecionarLivro.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/firebird/sql/FirebirdDatabase.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/forms/JPanelLivrosCadastrados.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/forms/FiltroParamsRelatorio.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/acesso/UsuarioLogin.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/biblioteca/Livro.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/app/Main.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/forms/JPanelContasAcesso.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO%20DE%20SOFTWARE/BIBLIOTECA/src/Biblioteca/src/forms/TabComponent.java</file>
+        </group>
+        <group name="Bravo">
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/main/Main.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/gui/models/TableCellRenderer.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/gui/dialogs/AboutDialog.java</file>
+        </group>
+        <group name="PG BACKUP">
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/gui/panels/BookDetailsPanel.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/gui/dialogs/MainWindow.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/main/Main.java</file>
+        </group>
+        <group name="Biblioteca">
+            <file>file:/D:/2.%20DESENVOLVIMENTO/2.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/gui/models/TableCellRenderer.java</file>
+        </group>
+        <group name="FINANCEIRO">
+            <file>file:/D:/2.%20SOFTWARE/2.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/gui/dialogs/MainWindow.java</file>
+            <file>file:/D:/2.%20SOFTWARE/2.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/gui/dialogs/ConfirmDiscardDialog.java</file>
+        </group>
+        <group name="BIBLIOTECA">
+            <file>file:/D:/2.%20SOFTWARE/2.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/gui/dialogs/SplashScreen.java</file>
+            <file>file:/D:/2.%20SOFTWARE/2.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/gui/dialogs/MainWindow.java</file>
+            <file>file:/D:/2.%20SOFTWARE/2.%20PROJETOS/BIBLIOTECA/src/Biblioteca/src/main/Main.java</file>
+        </group>
+    </open-files>
+</project-private>

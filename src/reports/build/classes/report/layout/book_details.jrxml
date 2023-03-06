@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="511" leftMargin="42" rightMargin="42" topMargin="42" bottomMargin="28" uuid="9163de63-f90c-4935-bee6-004fc9f00006">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Biblioteca"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="ID_BOOK" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    CASE WHEN SUBTITLE IS NULL THEN TITLE
+       ELSE TITLE || ' - ' || SUBTITLE
+    END as TITLE,
+    PURCHASE_DATE,
+    AUTHOR,
+    PUBLISHER,
+    ISBN,
+    EDITION,
+    VOLUME,
+    ISSUE_YEAR,
+    NUM_PAGES,
+    SUMMARY,
+    COVER
+FROM BOOK
+WHERE ID = $P{ID_BOOK};]]>
+	</queryString>
+	<field name="TITLE" class="java.lang.String"/>
+	<field name="PURCHASE_DATE" class="java.sql.Date"/>
+	<field name="AUTHOR" class="java.lang.String"/>
+	<field name="PUBLISHER" class="java.lang.String"/>
+	<field name="ISBN" class="java.lang.String"/>
+	<field name="EDITION" class="java.lang.Integer"/>
+	<field name="VOLUME" class="java.lang.Integer"/>
+	<field name="ISSUE_YEAR" class="java.lang.Integer"/>
+	<field name="NUM_PAGES" class="java.lang.Integer"/>
+	<field name="SUMMARY" class="java.lang.String"/>
+	<field name="COVER" class="java.io.InputStream"/>
+	<title>
+		<band height="24" splitType="Stretch">
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="0" width="511" height="24" uuid="af808448-2f9a-4848-81a6-6beb9eef120d"/>
+				<textElement verticalAlignment="Top">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TITLE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="327" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="32" width="78" height="20" uuid="9957120c-592e-4be3-a91b-65fe86e84b2c"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUTOR:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="85" y="32" width="237" height="20" uuid="07e47808-5294-4828-b230-28b668e3ed50"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AUTHOR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="235" width="77" height="20" uuid="f43d152f-9bc5-4637-a1cf-9f023a6fdc4b"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATA AQ.:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="84" y="235" width="237" height="20" uuid="76c2c82c-d372-4e05-ac55-c2b2fd4829e5"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PURCHASE_DATE}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="61" width="77" height="20" uuid="9079db7c-c7bb-4d3d-bb1e-40dd7a97f216"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EDITORA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="85" y="61" width="237" height="20" uuid="65a22e1d-5897-4be9-bc3d-38df61969737"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PUBLISHER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="90" width="77" height="20" uuid="5f680b80-f41d-4bc4-b8c6-086f391817a6"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ISBN:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="85" y="90" width="237" height="20" uuid="a8967907-81c7-45c9-b783-b8a1262790ae"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ISBN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="119" width="77" height="20" uuid="921a5375-2219-449a-a424-c98b01b407bb"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[EDIÇÃO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="85" y="119" width="237" height="20" uuid="1369d99a-a609-4952-906f-c19b74b04346"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EDITION}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="148" width="77" height="20" uuid="b25607c8-ba8d-4d21-ade4-7f200a8d913e"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VOLUME:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="85" y="148" width="237" height="20" uuid="1638c928-f29e-44c1-8e82-a67215036ae1"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VOLUME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="177" width="77" height="20" uuid="63a5ec8f-efb7-4e44-891d-f5df9428b283"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ANO PUB.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="85" y="177" width="237" height="20" uuid="39904b11-b80d-4842-a423-9c08c30b978c"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ISSUE_YEAR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="206" width="78" height="20" uuid="712065c4-fa9f-412c-b551-314590d697ef"/>
+				<textElement textAlignment="Left">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NÚM. PÁG.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="85" y="206" width="237" height="20" uuid="47f04c2c-b29c-4272-ac05-fa095573a1d3"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUM_PAGES}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="-1" y="281" width="78" height="20" uuid="e2a064b0-5931-45bb-a7f5-c416b05744db"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SINOPSE:]]></text>
+			</staticText>
+			<textField textAdjust="StretchHeight">
+				<reportElement isPrintRepeatedValues="false" x="0" y="305" width="511" height="21" uuid="4a362067-4c39-4e66-b04e-1594f7aead09"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{SUMMARY}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame">
+				<reportElement mode="Opaque" x="332" y="30" width="179" height="225" uuid="5ad14a4a-0da0-4349-9bab-706390021b7e"/>
+				<imageExpression><![CDATA[$F{COVER}]]></imageExpression>
+			</image>
+		</band>
+	</detail>
+</jasperReport>

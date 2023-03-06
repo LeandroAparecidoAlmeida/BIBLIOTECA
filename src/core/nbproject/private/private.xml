@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="1">
+        <file>
+            <url>src/acesso/UsuarioDAO.java</url>
+            <bookmark id="1">
+                <name/>
+                <line>148</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group name="Bravo">
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/core/src/database/FBManager.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/core/src/library/Collection.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/core/src/utils/CacheCleaner.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/core/src/library/Book.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/core/src/report/Report.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/core/src/environment/Config.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/core/src/library/LoanData.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/core/src/utils/StrParser.java</file>
+        </group>
+        <group name="PG BACKUP">
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/core/src/library/Collection.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/5.%20PROJETOS/BIBLIOTECA/src/core/src/library/Book.java</file>
+        </group>
+        <group name="Biblioteca">
+            <file>file:/D:/2.%20DESENVOLVIMENTO/2.%20PROJETOS/BIBLIOTECA/src/core/src/library/Book.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/2.%20PROJETOS/BIBLIOTECA/src/core/src/database/FBManager.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/2.%20PROJETOS/BIBLIOTECA/src/core/src/library/LoanData.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/2.%20PROJETOS/BIBLIOTECA/src/core/src/utils/CacheCleaner.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/2.%20PROJETOS/BIBLIOTECA/src/core/src/library/Collection.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/2.%20PROJETOS/BIBLIOTECA/src/core/src/report/Report.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/2.%20PROJETOS/BIBLIOTECA/src/core/src/environment/Config.java</file>
+            <file>file:/D:/2.%20DESENVOLVIMENTO/2.%20PROJETOS/BIBLIOTECA/src/core/src/utils/StrParser.java</file>
+        </group>
+        <group name="BIBLIOTECA"/>
+    </open-files>
+</project-private>

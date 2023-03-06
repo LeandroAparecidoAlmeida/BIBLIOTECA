@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="786" leftMargin="28" rightMargin="28" topMargin="22" bottomMargin="22" uuid="e550afc0-24e2-455c-a85f-2688c88fd804">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="DATE1" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATE2" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+    ID,
+    TITLE,
+    PURCHASE_DATE,
+    AUTHOR,
+    PUBLISHER,
+    ISBN,
+    EDITION,
+    VOLUME,
+    ISSUE_YEAR,
+    NUM_PAGES,
+    LOAN_DATE,
+    APPLICANT,
+    RETURN_DATE
+FROM (
+    SELECT
+        B.ID,
+        CASE WHEN B.SUBTITLE IS NULL THEN B.TITLE
+       	ELSE B.TITLE || ' - ' || B.SUBTITLE
+        END as TITLE,
+        B.PURCHASE_DATE,
+        B.AUTHOR,
+        B.PUBLISHER,
+        B.ISBN,
+        B.EDITION,
+        B.VOLUME,
+        B.ISSUE_YEAR,
+        B.NUM_PAGES,
+        L.LOAN_DATE,
+        L.APPLICANT,
+        LI.RETURN_DATE
+    FROM LOAN_ITEM LI
+    JOIN LOAN L ON (L.ID = LI.ID_LOAN)
+    JOIN BOOK B ON (B.ID = LI.ID_BOOK)
+    WHERE (LI.RETURNED = TRUE) AND (L.LOAN_DATE BETWEEN $P{DATE1} AND $P{DATE2})
+    UNION ALL
+    SELECT
+        B.ID,
+        CASE WHEN B.SUBTITLE IS NULL THEN B.TITLE
+       	ELSE B.TITLE || ' - ' || B.SUBTITLE
+        END as TITLE,
+        B.PURCHASE_DATE,
+        B.AUTHOR,
+        B.PUBLISHER,
+        B.ISBN,
+        B.EDITION,
+        B.VOLUME,
+        B.ISSUE_YEAR,
+        B.NUM_PAGES,
+        L.LOAN_DATE,
+        L.APPLICANT,
+        CAST('9999-12-31' AS DATE) AS RETURN_DATE
+    FROM LOAN_ITEM LI
+    JOIN LOAN L ON (L.ID = LI.ID_LOAN)
+    JOIN BOOK B ON (B.ID = LI.ID_BOOK)
+    WHERE (LI.RETURNED = FALSE) AND (L.LOAN_DATE BETWEEN $P{DATE1} AND $P{DATE2})
+)
+ORDER BY TITLE, ID, APPLICANT, PURCHASE_DATE, RETURN_DATE;]]>
+	</queryString>
+	<field name="ID" class="java.lang.Integer"/>
+	<field name="TITLE" class="java.lang.String"/>
+	<field name="PURCHASE_DATE" class="java.sql.Date"/>
+	<field name="AUTHOR" class="java.lang.String"/>
+	<field name="PUBLISHER" class="java.lang.String"/>
+	<field name="ISBN" class="java.lang.String"/>
+	<field name="EDITION" class="java.lang.Integer"/>
+	<field name="VOLUME" class="java.lang.Integer"/>
+	<field name="ISSUE_YEAR" class="java.lang.Integer"/>
+	<field name="NUM_PAGES" class="java.lang.Integer"/>
+	<field name="LOAN_DATE" class="java.sql.Date"/>
+	<field name="APPLICANT" class="java.lang.String"/>
+	<field name="RETURN_DATE" class="java.sql.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="18" width="786" height="1" uuid="42a3efbc-564e-42c2-8a04-72d00f86a6ae"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="1" width="444" height="16" uuid="0259ad66-b0b8-4361-aa0f-56f0fcf3532b"/>
+				<textElement>
+					<font size="11" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[LIVROS EMPRESTADOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="524" y="1" width="262" height="16" uuid="6c42845c-2f93-4458-a0c3-7c081e10296b"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PÁGINA "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="214" height="13" uuid="891b3c42-bad7-4ff0-9ac5-a1c2455ba4e9"/>
+				<textElement>
+					<font size="8" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TÍTULO  E SUBTÍTULO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="223" y="7" width="90" height="13" uuid="7dc7aecf-9e84-4aa0-8350-793cf76880c2"/>
+				<textElement>
+					<font size="8" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[AUTOR(ES)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="321" y="7" width="76" height="13" uuid="69abc5f7-45ab-40df-9145-b8a6423f2c24"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[EDITORA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="7" width="60" height="13" uuid="2f193abf-6758-4cf9-8506-372fcd70e5c4"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ISBN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="469" y="7" width="14" height="13" uuid="b56ff8fb-1183-4eb6-855d-9b95cc16228e"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ED.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="487" y="7" width="19" height="13" uuid="ec607b93-53ac-4930-b818-05ad00271b84"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[VOL.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="511" y="7" width="22" height="13" uuid="2710be3c-d0c7-48d8-915f-72798e90194f"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ANO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="537" y="7" width="20" height="13" uuid="d7404200-d87b-4d50-809a-84c6cc288dfc"/>
+				<textElement>
+					<font size="8" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[PGS.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="608" y="7" width="42" height="13" uuid="b997988c-0dd5-45b4-80cc-8121dd7c61fa"/>
+				<textElement>
+					<font size="8" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[DATA RET.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="654" y="7" width="45" height="13" uuid="66239344-a6fc-453f-80ac-32c6ff1e73eb"/>
+				<textElement>
+					<font size="8" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[DATA DEV.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="702" y="7" width="85" height="13" uuid="e8352ab9-e6be-4237-8365-642259a68611"/>
+				<textElement>
+					<font size="8" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SOLICITANTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="561" y="7" width="42" height="13" uuid="5004d4a4-dce9-493c-844f-2018f230e41e"/>
+				<textElement>
+					<font size="8" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[DATA AQ.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="0" y="0" width="788" height="15" isPrintWhenDetailOverflows="true" backcolor="#C6C6C6" uuid="5095dfea-b438-4a81-b483-da2fa41cb665">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT}%2 == 1]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="214" height="13" isPrintWhenDetailOverflows="true" uuid="b6b554ad-7963-4d47-b06a-bdb5310b1492"/>
+				<textElement textAlignment="Justified">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TITLE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="0" width="60" height="13" uuid="68379db7-d35c-41e1-8a72-e46f4eac1f47"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ISBN}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="223" y="0" width="90" height="13" isPrintWhenDetailOverflows="true" uuid="1a1b297e-f880-4e79-af87-bd5468a31ecc"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AUTHOR}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="321" y="0" width="76" height="13" isPrintWhenDetailOverflows="true" uuid="33a3c15b-40b6-41d2-8c97-f2fd9d120083"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PUBLISHER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="469" y="0" width="14" height="12" uuid="c64397e8-4898-4175-be8d-b13fd3c7764b"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EDITION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="0" width="19" height="12" uuid="564a1a64-c4e3-43a6-ace1-e6087219186e"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VOLUME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="511" y="0" width="22" height="12" uuid="5599f2ba-b0a9-47c2-b03a-0d60e5576d3e"/>
+				<textElement textAlignment="Left">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ISSUE_YEAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="537" y="0" width="20" height="12" uuid="104dabc9-75b5-4300-8b73-bb05563cb809"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUM_PAGES}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="608" y="0" width="42" height="12" uuid="26bd30c9-8e3d-4046-8c6f-203c99b3397b"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LOAN_DATE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="654" y="0" width="42" height="12" uuid="9dd82d66-02e1-44fa-90a0-28850b42642a"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RETURN_DATE}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="702" y="0" width="84" height="13" isPrintWhenDetailOverflows="true" uuid="34372e75-a34e-4ccf-bac4-16711edeb949"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APPLICANT}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="561" y="0" width="42" height="12" uuid="144311b5-530d-4935-ab7d-bd689c520204"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PURCHASE_DATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

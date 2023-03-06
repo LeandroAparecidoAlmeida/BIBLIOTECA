@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.16.0.final using JasperReports Library version 6.16.0-48579d909b7943b64690c65c71e07e0b80981928  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="786" leftMargin="28" rightMargin="28" topMargin="22" bottomMargin="22" uuid="e550afc0-24e2-455c-a85f-2688c88fd804">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Biblioteca"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="DATE1" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DATE2" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+   CASE WHEN B.SUBTITLE IS NULL THEN B.TITLE
+       ELSE B.TITLE || ' - ' || B.SUBTITLE
+   END as TITLE,
+   B.PURCHASE_DATE,
+   B.AUTHOR,
+   B.PUBLISHER,
+   B.ISBN,
+   B.EDITION,
+   B.VOLUME,
+   B.ISSUE_YEAR,
+   B.NUM_PAGES,
+   DB.DISCARD_DATE,
+   DB.REASON
+FROM BOOK B
+JOIN DISCARDED_BOOK DB ON (DB.ID_BOOK = B.ID)
+WHERE DB.DISCARD_DATE BETWEEN $P{DATE1} AND $P{DATE2}
+ORDER BY B.TITLE, B.ID;]]>
+	</queryString>
+	<field name="TITLE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="CASE"/>
+		<property name="com.jaspersoft.studio.field.label" value="TITLE"/>
+	</field>
+	<field name="PURCHASE_DATE" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="PURCHASE_DATE"/>
+		<property name="com.jaspersoft.studio.field.label" value="PURCHASE_DATE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="BOOK"/>
+		<fieldDescription><![CDATA[Data da aquisição.]]></fieldDescription>
+	</field>
+	<field name="AUTHOR" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="AUTHOR"/>
+		<property name="com.jaspersoft.studio.field.label" value="AUTHOR"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="BOOK"/>
+		<fieldDescription><![CDATA[Autor(es) do livro.]]></fieldDescription>
+	</field>
+	<field name="PUBLISHER" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="PUBLISHER"/>
+		<property name="com.jaspersoft.studio.field.label" value="PUBLISHER"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="BOOK"/>
+		<fieldDescription><![CDATA[Editora.]]></fieldDescription>
+	</field>
+	<field name="ISBN" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ISBN"/>
+		<property name="com.jaspersoft.studio.field.label" value="ISBN"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="BOOK"/>
+		<fieldDescription><![CDATA[Número do ISBN.]]></fieldDescription>
+	</field>
+	<field name="EDITION" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="EDITION"/>
+		<property name="com.jaspersoft.studio.field.label" value="EDITION"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="BOOK"/>
+		<fieldDescription><![CDATA[Número da edição.]]></fieldDescription>
+	</field>
+	<field name="VOLUME" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="VOLUME"/>
+		<property name="com.jaspersoft.studio.field.label" value="VOLUME"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="BOOK"/>
+		<fieldDescription><![CDATA[Número do volume.]]></fieldDescription>
+	</field>
+	<field name="ISSUE_YEAR" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="ISSUE_YEAR"/>
+		<property name="com.jaspersoft.studio.field.label" value="ISSUE_YEAR"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="BOOK"/>
+		<fieldDescription><![CDATA[Ano do lançamento.]]></fieldDescription>
+	</field>
+	<field name="NUM_PAGES" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="NUM_PAGES"/>
+		<property name="com.jaspersoft.studio.field.label" value="NUM_PAGES"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="BOOK"/>
+		<fieldDescription><![CDATA[Número de páginas.]]></fieldDescription>
+	</field>
+	<field name="DISCARD_DATE" class="java.sql.Date">
+		<property name="com.jaspersoft.studio.field.name" value="DISCARD_DATE"/>
+		<property name="com.jaspersoft.studio.field.label" value="DISCARD_DATE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="DISCARDED_BOOK"/>
+		<fieldDescription><![CDATA[Data em que o livro foi descartado.]]></fieldDescription>
+	</field>
+	<field name="REASON" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="REASON"/>
+		<property name="com.jaspersoft.studio.field.label" value="REASON"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="DISCARDED_BOOK"/>
+		<fieldDescription><![CDATA[Motivo porque o livro foi descartado.]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="20" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="18" width="786" height="1" uuid="42a3efbc-564e-42c2-8a04-72d00f86a6ae"/>
+			</line>
+			<staticText>
+				<reportElement x="0" y="1" width="444" height="16" uuid="0259ad66-b0b8-4361-aa0f-56f0fcf3532b"/>
+				<textElement>
+					<font size="11" isBold="true" isUnderline="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[LIVROS DESCARTADOS]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="524" y="1" width="262" height="16" uuid="6c42845c-2f93-4458-a0c3-7c081e10296b"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PÁGINA "+$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="7" width="267" height="13" uuid="891b3c42-bad7-4ff0-9ac5-a1c2455ba4e9"/>
+				<textElement>
+					<font size="9" isBold="true" isItalic="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[TÍTULO  E SUBTÍTULO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="7" width="122" height="13" uuid="7dc7aecf-9e84-4aa0-8350-793cf76880c2"/>
+				<textElement>
+					<font size="9" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[AUTOR(ES)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="402" y="7" width="88" height="13" uuid="69abc5f7-45ab-40df-9145-b8a6423f2c24"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[EDITORA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="495" y="7" width="70" height="13" uuid="2f193abf-6758-4cf9-8506-372fcd70e5c4"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ISBN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="572" y="7" width="17" height="13" uuid="b56ff8fb-1183-4eb6-855d-9b95cc16228e"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ED.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="595" y="7" width="23" height="13" uuid="ec607b93-53ac-4930-b818-05ad00271b84"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[VOL.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="624" y="7" width="26" height="13" uuid="2710be3c-d0c7-48d8-915f-72798e90194f"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[ANO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="655" y="7" width="24" height="13" uuid="d7404200-d87b-4d50-809a-84c6cc288dfc"/>
+				<textElement>
+					<font size="9" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[PGS.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="738" y="7" width="49" height="13" uuid="b997988c-0dd5-45b4-80cc-8121dd7c61fa"/>
+				<textElement>
+					<font size="9" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[DT. DESC.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="684" y="7" width="50" height="13" uuid="5004d4a4-dce9-493c-844f-2018f230e41e"/>
+				<textElement>
+					<font size="9" isBold="false" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[DATA AQ.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="32" splitType="Stretch">
+			<rectangle>
+				<reportElement stretchType="RelativeToBandHeight" x="-1" y="0" width="788" height="27" isPrintWhenDetailOverflows="true" backcolor="#C6C6C6" uuid="9ab7addc-bb39-41b1-9411-9f22819bbdd5">
+					<printWhenExpression><![CDATA[$V{REPORT_COUNT}%2 == 1]]></printWhenExpression>
+				</reportElement>
+				<graphicElement>
+					<pen lineWidth="0.0"/>
+				</graphicElement>
+			</rectangle>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="0" y="5" width="267" height="13" isPrintWhenDetailOverflows="true" uuid="b6b554ad-7963-4d47-b06a-bdb5310b1492"/>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TITLE} + '\n'+'\n' + "Motivo: " + $F{REASON}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="495" y="5" width="70" height="13" uuid="68379db7-d35c-41e1-8a72-e46f4eac1f47"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ISBN}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="275" y="5" width="122" height="13" isPrintWhenDetailOverflows="true" uuid="1a1b297e-f880-4e79-af87-bd5468a31ecc"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AUTHOR}]]></textFieldExpression>
+			</textField>
+			<textField textAdjust="StretchHeight">
+				<reportElement x="402" y="5" width="88" height="13" isPrintWhenDetailOverflows="true" uuid="33a3c15b-40b6-41d2-8c97-f2fd9d120083"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PUBLISHER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="572" y="5" width="17" height="12" uuid="c64397e8-4898-4175-be8d-b13fd3c7764b"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{EDITION}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="596" y="5" width="23" height="12" uuid="564a1a64-c4e3-43a6-ace1-e6087219186e"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VOLUME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="624" y="5" width="26" height="12" uuid="5599f2ba-b0a9-47c2-b03a-0d60e5576d3e"/>
+				<textElement textAlignment="Left">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ISSUE_YEAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="655" y="5" width="24" height="12" uuid="104dabc9-75b5-4300-8b73-bb05563cb809"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUM_PAGES}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="738" y="5" width="49" height="12" uuid="26bd30c9-8e3d-4046-8c6f-203c99b3397b"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DISCARD_DATE}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="684" y="5" width="50" height="12" uuid="144311b5-530d-4935-ab7d-bd689c520204"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PURCHASE_DATE}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
